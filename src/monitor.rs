@@ -1,15 +1,19 @@
 
 // use x11;
-use clipboard;
+
+
+// use clipboard;
+
+mod tio;
 
 pub fn start() {
 
-    let mut line = String::new();
-    println!(">>");
-    let b1 = std::io::stdin().read_line(&mut line).unwrap();
+    tio::out(">");
+    let line = tio::readln();
     if line == "add" {
         addNameSecret();
     }
+
 
 }
 
@@ -20,11 +24,10 @@ pub fn start() {
 
 
 fn addNameSecret() {
-    let mut line = String::new();
-    let mut pass = String::new();
-    let b1 = std::io::stdin().read_line(&mut line).unwrap();
-    println!("pass:");
-    let b1 = std::io::stdin().read_line(&mut pass).unwrap();
+    tio::out("name:");
+    let line = tio::readln();
+    tio::out("pass:");
+    let pass = tio::readln();
 
 }
 
