@@ -1,4 +1,5 @@
 use std::io::Write;
+use std::fs;
 
 pub fn out(data: &str){
     std::io::stdout().write(data.as_bytes()).unwrap();
@@ -11,4 +12,9 @@ pub fn readln() -> String {
     line.pop();
     line.pop();
     return line;
+}
+pub fn md(dir: &str){
+
+    std::fs::create_dir(dir);
+
 }
