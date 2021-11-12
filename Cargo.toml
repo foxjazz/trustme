@@ -1,0 +1,13 @@
+[package]
+name = "trustme"
+version = "0.1.0"
+edition = "2021"
+authors = ["fly <foxr4@foxjazz.net>"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+#[lib]
+#name="trustme_lib"
+
+[dependencies]
+x11 = "2.19.*"
+clipboard = "0.5.0"
