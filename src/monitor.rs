@@ -7,8 +7,6 @@ use std::collections::HashMap;
 mod tio;
 
 pub fn start() {
-
-    let mut pwords = HashMap::new();
     tio::out(">");
     let line = tio::readln();
     if line == "add" {

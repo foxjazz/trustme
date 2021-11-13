@@ -5,13 +5,13 @@ use std::collections::HashMap;
 use std::fs::File;
 
 
-struct mydata
+pub struct mydata
 {
-    name: String;
-    val: String;
+    name: String,
+    val: String,
 }
 impl mydata {
-    fn new (name: &str, val: &str) -> {
+    fn new (name: &str, val: &str) -> mydata {
         mydata {name: name.to_string(), val: val.to_string()
         }
     }
@@ -36,7 +36,7 @@ pub fn md(dir: &str){
 }
 
 pub fn save(){
-    let mut ser = serde_json::to_string(&mydata).unwrap();
+    let mut ser = serde_json::to_string(mydata).unwrap();
     let mut file = File::create("mydata.tm").unwrap();
     file.write_all(ser.as_bytes()).unwrap();
 
