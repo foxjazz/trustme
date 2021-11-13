@@ -38,7 +38,7 @@ pub fn md(dir: &str){
 pub fn save(){
     let mut ser = serde_json::to_string(&mydata).unwrap();
     let mut file = File::create("mydata.tm").unwrap();
-    file.write_all(ser).unwrap();
+    file.write_all(ser.as_bytes()).unwrap();
 
 }
 pub fn addData(one: &str, two: &str){
