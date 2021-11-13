@@ -3,7 +3,7 @@
 
 
 // use clipboard;
-
+use std::collections::HashMap;
 mod tio;
 
 pub fn start() {
@@ -29,7 +29,7 @@ fn addNameSecret() {
     let line = tio::readln();
     tio::out("pass:");
     let pass = tio::readln();
-    pwords.insert(line.to_string(), pass.to_string());
+    tio::mydata.insert(line.to_string(), pass.to_string());
 }
 
 fn setToClipboard() {

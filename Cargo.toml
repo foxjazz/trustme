@@ -9,6 +9,7 @@ authors = ["fly <foxr4@foxjazz.net>"]
 #name="trustme_lib"
 
 [dependencies]
-x11 = "2.19.*"
+x11 = "2.19.1"
 clipboard = "0.5.0"
 serde = "1.0.130"
+serde_json = "1.0.69"

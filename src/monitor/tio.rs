@@ -1,8 +1,21 @@
 use std::io::Write;
-use std::fs;
+
 use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
 use std::fs::File;
+
+
+struct mydata
+{
+    name: String;
+    val: String;
+}
+impl mydata {
+    fn new (name: &str, val: &str) -> {
+        mydata {name: name.to_string(), val: val.to_string()
+        }
+    }
+}
 
 pub fn out(data: &str){
     std::io::stdout().write(data.as_bytes()).unwrap();
@@ -22,13 +35,15 @@ pub fn md(dir: &str){
 
 }
 
-pub fn save(hm: HashMap){
-    let ser mut = serde_json::tostring(&hm)?;
-    let mut file = File::create("mydata.tm")?;
-    file.write_all(ser)?;
+pub fn save(){
+    let mut ser = serde_json::to_string(&mydata).unwrap();
+    let mut file = File::create("mydata.tm").unwrap();
+    file.write_all(ser).unwrap();
 
 }
-
-pub fn read() -> :HashMap {
-    
+pub fn addData(one: &str, two: &str){
+    mydata.insert(one, two);
 }
+/* pub fn read() -> :HashMap {
+
+} */
