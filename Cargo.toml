@@ -11,3 +11,4 @@ authors = ["fly <foxr4@foxjazz.net>"]
 [dependencies]
 x11 = "2.19.*"
 clipboard = "0.5.0"
+serde = "1.0.130"

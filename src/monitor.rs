@@ -8,6 +8,7 @@ mod tio;
 
 pub fn start() {
 
+    let mut pwords = HashMap::new();
     tio::out(">");
     let line = tio::readln();
     if line == "add" {
@@ -28,7 +29,7 @@ fn addNameSecret() {
     let line = tio::readln();
     tio::out("pass:");
     let pass = tio::readln();
-
+    pwords.insert(line.to_string(), pass.to_string());
 }
 
 fn setToClipboard() {
