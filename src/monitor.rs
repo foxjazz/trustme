@@ -5,12 +5,16 @@
 // use clipboard;
 use std::collections::HashMap;
 mod tio;
+use tio::GData;
 
 pub fn start() {
+    
+    let mut myList = GData::new();
+
     tio::out(">");
     let line = tio::readln();
     if line == "add" {
-        addNameSecret();
+        addNameSecret(&mut myList);
     }
 
 
@@ -21,13 +25,13 @@ pub fn start() {
     x11::XGrabKey(key)
 } */
 
-
-fn addNameSecret() {
+fn addNameSecret(myList: &mut GData) {
     tio::out("name:");
     let line = tio::readln();
     tio::out("pass:");
     let pass = tio::readln();
-    tio::mydata.insert(line.to_string(), pass.to_string());
+    let mut data = (line, pass);
+    myList.add(data);
 }
 
 fn setToClipboard() {
