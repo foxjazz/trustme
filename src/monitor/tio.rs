@@ -4,27 +4,40 @@ use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
 use std::fs::File;
 
-
+#[derive(Clone)]
 pub struct GData
 {
     data: HashMap<String, String>,
 }
 impl GData {
+    
     pub fn new() -> Self {
-        Self { data: HashMap::new() }
+        return Self { data: HashMap::new() }
     }
-
+    
     pub fn add(&mut self, data: (String, String)) {
         let (k, v) = data;
 
         self.data.insert(k, v);
     }
 
-    fn remove(&mut self, kk: String) {
+    pub fn remove(&mut self, kk: String) {
 
         self.data.remove(&kk);
     }
-    fn list(&mut self, kk: String) -> Vec<&String> {
+
+    
+    pub fn list(self) -> Vec<&'static String> {
+        let mut list: Vec<&String> = Vec::new();
+        for i in self.data.keys()
+        {
+            list.clone().push(i);
+        }
+        return list;
+        /* let my_keys :Vec<&String> =   self.data.keys().collect();
+        my_keys */
+    }
+    pub fn find(&mut self, kk: String) -> Vec<&String> {
         let myKeys :Vec<&String> =   self.data.keys().collect();
         // List<string> lst = new List();
         myKeys
@@ -33,6 +46,11 @@ impl GData {
 
 pub fn out(data: &str){
     std::io::stdout().write(data.as_bytes()).unwrap();
+    std::io::stdout().flush();
+}
+pub fn outln(data: &str){
+    std::io::stdout().write(data.as_bytes()).unwrap();
+    std::io::stdout().write("\r\n".as_bytes()).unwrap();
     std::io::stdout().flush();
 }
 
