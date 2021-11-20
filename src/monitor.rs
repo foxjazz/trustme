@@ -13,13 +13,27 @@ pub fn start() {
         // let mut myListD = &mut myList;
         loop {
             tio::out("tm>");
-            let line = tio::readln();
-            match tio::readln().as_str() {
+             let user = tio::readln();
+            if user == "add"{
+                addNameSecret(&mut myList);
+            }
+            if user == "list"{
+                myList.list();
+            }
+            if user == "get"{
+                tio::out("\r\nget:");
+                myList.get(tio::readln());
+            }
+            if user == "help"{
+                tio::out_ln("commands add, list, get, quit");
+            }
+            if user == "quit"{ return;}
+            /*match tio::readln().as_str() {
                 "add" => addNameSecret(&mut myList),
                 "list" => myList.list(),
                 "quit" | "exit" => return,
                 _ => return,
-            }
+            }*/
             
     }
 

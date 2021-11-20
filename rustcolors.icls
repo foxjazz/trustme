@@ -1,0 +1,144 @@
+<scheme name="Rust-Dimension15" version="142" parent_scheme="Darcula">
+    <metaInfo>
+        <property name="created">2021-07-04T13:27:55</property>
+        <property name="ide">CLion</property>
+        <property name="ideVersion">2021.1.2.0.0</property>
+        <property name="modified">2021-07-04T13:28:03</property>
+        <property name="originalScheme">Rust-Dimension15</property>
+    </metaInfo>
+    <colors>
+        <option name="CARET_ROW_COLOR" value="444444" />
+        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="b4b4b4" />
+        <option name="READONLY_BACKGROUND" value="403939" />
+        <option name="SELECTION_BACKGROUND" value="2052ad" />
+        <option name="SELECTION_FOREGROUND" value="22cebf" />
+        <option name="VISUAL_INDENT_GUIDE" value="4e4e4e" />
+    </colors>
+    <attributes>
+        <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR">
+            <value>
+                <option name="BACKGROUND" value="363939" />
+            </value>
+        </option>
+        <option name="MATCHED_BRACE_ATTRIBUTES">
+            <value>
+                <option name="FOREGROUND" value="ffef28" />
+                <option name="BACKGROUND" value="547872" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
+        <option name="SEARCH_RESULT_ATTRIBUTES">
+            <value>
+                <option name="BACKGROUND" value="14456a" />
+                <option name="ERROR_STRIPE_COLOR" value="530d" />
+            </value>
+        </option>
+        <option name="TODO_DEFAULT_ATTRIBUTES">
+            <value>
+                <option name="FOREGROUND" value="a8c023" />
+                <option name="FONT_TYPE" value="3" />
+                <option name="ERROR_STRIPE_COLOR" value="977ab" />
+            </value>
+        </option>
+        <option name="WARNING_ATTRIBUTES">
+            <value>
+                <option name="BACKGROUND" value="8b1414" />
+                <option name="ERROR_STRIPE_COLOR" value="be9117" />
+                <option name="EFFECT_TYPE" value="2" />
+            </value>
+        </option>
+        <option name="org.rust.ASSOC_FUNCTION">
+            <value>
+                <option name="FOREGROUND" value="397be0" />
+                <option name="FONT_TYPE" value="3" />
+            </value>
+        </option>
+        <option name="org.rust.ASSOC_FUNCTION_CALL">
+            <value>
+                <option name="FOREGROUND" value="18ac0f" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
+        <option name="org.rust.ENUM">
+            <value>
+                <option name="FOREGROUND" value="5e9cea" />
+            </value>
+        </option>
+        <option name="org.rust.ENUM_VARIANT">
+            <value>
+                <option name="FOREGROUND" value="377ff8" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
+        <option name="org.rust.EOL_COMMENT">
+            <value>
+                <option name="FOREGROUND" value="4a663e" />
+                <option name="FONT_TYPE" value="3" />
+            </value>
+        </option>
+        <option name="org.rust.FIELD">
+            <value>
+                <option name="FOREGROUND" value="19b7a6" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
+        <option name="org.rust.FUNCTION_CALL">
+            <value>
+                <option name="FOREGROUND" value="d6d05a" />
+            </value>
+        </option>
+        <option name="org.rust.IDENTIFIER">
+            <value>
+                <option name="FOREGROUND" value="92ceee" />
+            </value>
+        </option>
+        <option name="org.rust.KEYWORD">
+            <value>
+                <option name="FOREGROUND" value="4b86b6" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
+        <option name="org.rust.METHOD">
+            <value>
+                <option name="FOREGROUND" value="f5d4a0" />
+                <option name="FONT_TYPE" value="1" />
+            </value>
+        </option>
+        <option name="org.rust.METHOD_CALL">
+            <value>
+                <option name="FOREGROUND" value="c4c499" />
+            </value>
+        </option>
+        <option name="org.rust.PARAMETER">
+            <value>
+                <option name="FOREGROUND" value="6e99de" />
+            </value>
+        </option>
+        <option name="org.rust.PRIMITIVE_TYPE">
+            <value>
+                <option name="FOREGROUND" value="c9400" />
+            </value>
+        </option>
+        <option name="org.rust.STRING">
+            <value>
+                <option name="FOREGROUND" value="c48a72" />
+            </value>
+        </option>
+        <option name="org.rust.STRUCT">
+            <value>
+                <option name="FOREGROUND" value="18ab5b" />
+            </value>
+        </option>
+        <option name="org.rust.TRAIT">
+            <value>
+                <option name="FOREGROUND" value="2e8def" />
+                <option name="FONT_TYPE" value="2" />
+            </value>
+        </option>
+        <option name="org.rust.UNSAFE_CODE">
+            <value>
+                <option name="BACKGROUND" value="4e3232" />
+            </value>
+        </option>
+    </attributes>
+</scheme>

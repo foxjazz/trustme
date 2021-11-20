@@ -17,30 +17,22 @@ impl GData {
     
     pub fn add(&mut self, data: (String, String)) {
         let (k, v) = data;
-
         self.data.insert(k, v);
     }
 
     pub fn remove(&mut self, kk: String) {
-
         self.data.remove(&kk);
+    }
+    pub fn get(&self, query: String){
+        let q: &str = query.as_str();
+        out_ln(self.data.get(q).unwrap());
     }
 
     
     pub fn list(&mut self) {
-        let mut list: Vec<&String> = Vec::new();
         for (key, val) in self.data.iter() {
-            
             out_ln( key);
         }
-        /* for i in self.data.keys()
-        {
-            out_li(i);
-            
-        } */
-        
-        /* let my_keys :Vec<&String> =   self.data.keys().collect();
-        my_keys */
     }
     pub fn find(&mut self, kk: String) {
         for (key, val) in self.data.iter() {
@@ -66,7 +58,7 @@ pub fn readln() -> String {
     let mut line = String::new();
     std::io::stdin().read_line(&mut line).unwrap();
     line.pop();
-    line.pop();
+
     return line;
 }/*  */
 pub fn md(dir: &str){
