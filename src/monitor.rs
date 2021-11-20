@@ -10,21 +10,17 @@ use tio::GData;
 pub fn start() {
     
         let mut myList = GData::new();
+        // let mut myListD = &mut myList;
         loop {
-            let mut cur = myList.clone();
-            let mut copObj: GData = myList.clone();
             tio::out("tm>");
             let line = tio::readln();
-            if line == "add" {
-               addNameSecret(&mut cur);
+            match tio::readln().as_str() {
+                "add" => addNameSecret(&mut myList),
+                "list" => myList.list(),
+                "quit" | "exit" => return,
+                _ => return,
             }
-            if line == "list"{
-                list(copObj);
-            }
-            if (line == "quit"){
-                // save
-                return;
-            }
+            
     }
 
 }
@@ -33,25 +29,6 @@ pub fn start() {
     let mut key;
     x11::XGrabKey(key)
 } */
-fn list (myList: GData) {
-    let list = myList.list();
-    let mut done: bool = false;
-    let mut i: u32 = 0;
-    let l = list.len();
-    if l == 0 {
-        return;
-    }
-    loop {
-        let s = list[0];
-            if  l == 0 {
-                break;
-            }
-            tio::outln(s);
-            i+=1;
-        
-    }
-}
-
 fn addNameSecret(myList: &mut GData) {
     tio::out("name:");
     let line = tio::readln();

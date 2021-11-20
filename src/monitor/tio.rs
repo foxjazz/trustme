@@ -27,20 +27,28 @@ impl GData {
     }
 
     
-    pub fn list(self) -> Vec<&'static String> {
+    pub fn list(&mut self) {
         let mut list: Vec<&String> = Vec::new();
-        for i in self.data.keys()
-        {
-            list.clone().push(i);
+        for (key, val) in self.data.iter() {
+            
+            out_ln( key);
         }
-        return list;
+        /* for i in self.data.keys()
+        {
+            out_li(i);
+            
+        } */
+        
         /* let my_keys :Vec<&String> =   self.data.keys().collect();
         my_keys */
     }
-    pub fn find(&mut self, kk: String) -> Vec<&String> {
-        let myKeys :Vec<&String> =   self.data.keys().collect();
-        // List<string> lst = new List();
-        myKeys
+    pub fn find(&mut self, kk: String) {
+        for (key, val) in self.data.iter() {
+            if key.starts_with(&kk) {
+                out_ln(key);
+            }
+        }
+        
     }
 }
 
@@ -48,7 +56,7 @@ pub fn out(data: &str){
     std::io::stdout().write(data.as_bytes()).unwrap();
     std::io::stdout().flush();
 }
-pub fn outln(data: &str){
+pub fn out_ln(data: &str){
     std::io::stdout().write(data.as_bytes()).unwrap();
     std::io::stdout().write("\r\n".as_bytes()).unwrap();
     std::io::stdout().flush();
