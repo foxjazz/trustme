@@ -33,6 +33,13 @@ pub fn start() {
                             break;
                         }
                     },
+                    "get" => {
+                        if let Some(second) = iterator.next() {
+                            myList.get(second.to_string());
+                        } else {
+                            break;
+                        }
+                    }
                     _ => continue,
                 }
             }
