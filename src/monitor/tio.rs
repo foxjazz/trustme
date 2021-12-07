@@ -3,10 +3,11 @@ use std::io::Write;
 use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
 use std::fs::File;
-
-#[derive(Clone)]
+#[serde_as]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GData
 {
+    #[serde_as(as = "Vec<(_, _)>")]
     data: HashMap<String, String>,
 }
 impl GData {

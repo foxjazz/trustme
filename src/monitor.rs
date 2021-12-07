@@ -3,13 +3,31 @@
 
 
 // use clipboard;
+use std::env;
+use std::env::join_paths;
+use std::path::Path;
 
+use serde_json;
 mod tio;
 use tio::GData;
+pub fn setup(){
+    let current =  env::current_dir().unwrap();
+    current.join("/data.tm");
+    let contents: String = std::fs::read_to_string(current).unwrap();
+    if contents.len() > 0 {
+        let mut data_v: GData = serde_json::from_str(contents.as_str()).unwrap();
+        let &mut data = data_v;
+        start(data);
+    }
+    else  {
+        let mut data = GData::new();
+        start(data);
+    }
+    // let bytes: Vec<u8> = std::fs::read("/some/file")?;
 
-pub fn start() {
-    
-        let mut myList = GData::new();
+}
+pub fn start(&mut myList: GData) {
+
         // let mut myListD = &mut myList;
         loop {
             tio::out("tm>");
