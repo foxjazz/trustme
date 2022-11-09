@@ -5,19 +5,23 @@
 // use clipboard;
 use std::env;
 use std::env::join_paths;
+use std::fs::File;
 use std::path::Path;
-
+use std::io::prelude::*;
 use serde_json;
 mod tio;
 use tio::GData;
 pub fn setup(){
-    let current =  env::current_dir().unwrap();
-    current.join("/data.tm");
-    let contents: String = std::fs::read_to_string(current).unwrap();
-    if contents.len() > 0 {
-        let mut data_v: GData = serde_json::from_str(contents.as_str()).unwrap();
-        let &mut data = data_v;
-        start(data);
+    let mut current =  env::current_dir().unwrap();
+
+    current = current.join("/data.tm");
+    if (Path::new(&current).exists()) {
+        let contents: String = std::fs::read_to_string(current).unwrap();
+        if contents.len() > 0 {
+            let mut data_v: GData = serde_json::from_str(contents.as_str()).unwrap();
+//        let &mut data = data_v;
+            start(data_v);
+        }
     }
     else  {
         let mut data = GData::new();
@@ -26,7 +30,16 @@ pub fn setup(){
     // let bytes: Vec<u8> = std::fs::read("/some/file")?;
 
 }
-pub fn start(&mut myList: GData) {
+pub fn saveJson(myList: &GData){
+    let mut current =  env::current_dir().unwrap();
+    current = current.join("/data.tm");
+    let answer = serde_json::to_string(myList)
+        .expect("error");
+    let mut f = File::create(current)
+        .expect("error");
+    f.write_all(answer.as_bytes()).expect("TODO: panic message");
+}
+pub fn start(mut myList: GData) {
 
         // let mut myListD = &mut myList;
         loop {
@@ -96,6 +109,7 @@ fn addNameSecret(myList: &mut GData) {
     let pass = tio::readln();
     let mut data = (line, pass);
     myList.add(data);
+    saveJson(&myList);
 }
 
 fn setToClipboard() {
