@@ -2,24 +2,36 @@
 // use x11;
 
 
-// use clipboard;
+// use clipboard;\
+
 use std::env;
 use std::env::join_paths;
-use std::fs::File;
+use std::fs::{File, read_to_string};
 use std::path::Path;
 use std::io::prelude::*;
 use serde_json;
 mod tio;
+mod faze;
+
+
 use tio::GData;
 pub fn setup(){
     let mut current =  env::current_dir().unwrap();
 
+
     current = current.join("/data.tm");
     if (Path::new(&current).exists()) {
-        let contents: String = std::fs::read_to_string(current).unwrap();
+
+        let cypher_text = read_to_string(&current).unwrap();
+        let fz = faze::Fazer::new("test");
+        let contents = fz.dec(&cypher_text).unwrap();
+
+//        let contents = std::fs::read_to_string(current).unwrap();
+
         if contents.len() > 0 {
             let mut data_v: GData = serde_json::from_str(contents.as_str()).unwrap();
 //        let &mut data = data_v;
+
             start(data_v);
         }
     }
@@ -33,8 +45,10 @@ pub fn setup(){
 pub fn saveJson(myList: &GData){
     let mut current =  env::current_dir().unwrap();
     current = current.join("/data.tm");
-    let answer = serde_json::to_string(myList)
+    let json = serde_json::to_string(myList)
         .expect("error");
+    let fz = faze::Fazer::new("test");
+    let answer = fz.enc(json.as_str());
     let mut f = File::create(current)
         .expect("error");
     f.write_all(answer.as_bytes()).expect("TODO: panic message");
